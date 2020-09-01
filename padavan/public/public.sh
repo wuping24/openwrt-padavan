@@ -4,8 +4,8 @@
 
 user_name="admin"                        # 用户名 admin
 user_password=$user_name                 # 用户密码 admin
-lan_ip="192.168.3"                       # lan 地址 192.168.3.1 一定别写后面的 .1
-wifi_password="1234567890"               # wifi密码，切记密码最少8位 admin
+lan_ip="192.168.1"                       # lan 地址 192.168.3.1 一定别写后面的 .1
+wifi_password="3143259527"               # wifi密码，切记密码最少8位 admin
 version_time=$(date "+%Y%m%d")           # 自动时间更新时版本号: 20200320
 default_path="./user/shared/defaults.h"  # 默认文件配置目录
 
@@ -17,10 +17,10 @@ echo '修改密码'
 sed -i 's/#define\s*DEF_ROOT_PASSWORD\s*"admin"/#define  DEF_ROOT_PASSWORD     "'$user_password'"/g' $default_path
 
 echo "修改Lan ip"
-sed -i "s/192.168.2/$lan_ip/g" $default_path
+sed -i "s/192.168.1/$lan_ip/g" $default_path
 
 echo "修改Wif密码"
-sed -i "s/1234567890/$wifi_password/g" $default_path
+sed -i "s/3143259527/$wifi_password/g" $default_path
 
 echo "更新版本号时间"
 sed -i "s/FIRMWARE_BUILDS_REV=[0-9]*/FIRMWARE_BUILDS_REV=$version_time/g" ./versions.inc
@@ -78,7 +78,7 @@ echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config  # smartdns二进制文�
 #网易云解锁
 echo "CONFIG_FIRMWARE_INCLUDE_WYY=y" >> .config
 #网易云解锁GO版本执行文件（4M多）注意固件超大小
-echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config
+echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=y" >> .config
 
 # 其他
 echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config    # MENTOHUST
